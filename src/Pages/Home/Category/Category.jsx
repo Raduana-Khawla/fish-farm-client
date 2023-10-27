@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-// import "./styles.css";
+//import "./styles.css";
 
 import slide1 from "../../../assets/banner3.jpeg";
 import slide2 from "../../../assets/banner5.jpeg";

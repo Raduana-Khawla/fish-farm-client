@@ -11,6 +11,8 @@ import { Helmet } from "react-helmet-async";
 const Order = () => {
   const categories = ["mystuscavasius", "commonCarp", "catla", "Wallagoattu"];
   const { category } = useParams();
+  console.log(category);
+
   const initialIndex = categories.indexOf(category);
   const [tabIndex, setTabIndex] = useState(initialIndex);
   const [menu] = useMenu();
@@ -35,7 +37,6 @@ const Order = () => {
           <Tab>CommonCarp</Tab>
           <Tab>Catla</Tab>
           <Tab>Wallagoattu</Tab>
-          {/* <Tab>Drinks</Tab> */}
         </TabList>
         <TabPanel>
           <OrderTab items={mystuscavasius}></OrderTab>
