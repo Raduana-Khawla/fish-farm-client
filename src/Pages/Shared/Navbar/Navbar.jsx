@@ -23,7 +23,7 @@ const Navbar = () => {
         <Link to="/menu">Our Menu</Link>
       </li>
       <li>
-        <Link to="/order/commonCarp">Order Food</Link>
+        <Link to="/order/salad">Order Food</Link>
       </li>
       <li>
         <Link to="/secret">Secret</Link>
@@ -36,7 +36,7 @@ const Navbar = () => {
           </button>
         </Link>
       </li>
-      {user && user ? (
+      {user ? (
         <>
           <button onClick={handleLogOut} className="btn btn-ghost">
             LogOut

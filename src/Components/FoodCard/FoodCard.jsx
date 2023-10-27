@@ -7,7 +7,7 @@ import useCart from "../../hooks/useCart/useCart";
 const FoodCard = ({ item }) => {
   const { name, image, price, recipe, _id } = item;
   const { user } = useContext(AuthContext);
-  const [refetch] = useCart();
+  const [, refetch] = useCart();
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -35,7 +35,7 @@ const FoodCard = ({ item }) => {
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: "Fish added on the cart.",
+              title: "Food added on the cart.",
               showConfirmButton: false,
               timer: 1500,
             });
@@ -43,7 +43,7 @@ const FoodCard = ({ item }) => {
         });
     } else {
       Swal.fire({
-        title: "Please login to order the fish",
+        title: "Please login to order the food",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",

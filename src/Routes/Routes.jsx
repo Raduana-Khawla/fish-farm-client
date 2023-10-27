@@ -9,6 +9,7 @@ import Menu from "../Pages/Menu/Menu";
 import Order from "../Pages/Menu/Order/Order/Order";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import Dashboard from "../Layout/Dashboard/Dashboard";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -45,11 +46,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "dashboard",
-        element: <Dashboard></Dashboard>,
+        element: (
+          <PrivateRoute>
+            <Dashboard></Dashboard>
+          </PrivateRoute>
+        ),
         children: [
           {
             path: "mycart",
             element: <MyCart></MyCart>,
+          },
+          {
+            path: "allusers",
+            element: <AllUsers></AllUsers>,
           },
         ],
       },
