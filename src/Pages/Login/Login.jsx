@@ -56,7 +56,7 @@ const Login = () => {
   return (
     <>
       <Helmet>
-        <title>Bistro Boss | Login</title>
+        <title>Fish Farm | Login</title>
       </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col md:flex-row-reverse">
@@ -120,7 +120,7 @@ const Login = () => {
               </div>
             </form>
             <p>
-              <small>
+              <small className="px-6">
                 New Here? <Link to="/signup">Create an account</Link>{" "}
               </small>
             </p>

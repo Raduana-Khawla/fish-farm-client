@@ -3,6 +3,7 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
 import useCart from "../../hooks/useCart/useCart";
+import { FaShoppingCart } from "react-icons/fa";
 
 const FoodCard = ({ item }) => {
   const { name, image, price, recipe, _id } = item;
@@ -57,22 +58,18 @@ const FoodCard = ({ item }) => {
     }
   };
   return (
-    <div className="card w-96 bg-base-100 shadow-xl">
-      <figure>
-        <img src={image} alt="Shoes" />
-      </figure>
-      <p className="absolute right-0 mr-4 mt-4 px-4 bg-slate-900 text-white">
-        ${price}
-      </p>
+    <div className="max-w-sm bg-white rounded overflow-hidden shadow-sm border mx-auto p-2">
+      <img className="w-full h-32 object-cover" src={image} alt="Shoes" />
       <div className="card-body flex flex-col items-center">
-        <h2 className="card-title">{name}</h2>
-        <p>{recipe}</p>
-        <div className="card-actions justify-end">
+        <h2 className="font-bold text-sm text-gray-700">{name}</h2>
+        <p className="text-sm text-gray-700">${price}</p>
+        <p className="text-gray-700 text-xs">{recipe}</p>
+        <div className="mt-4">
           <button
             onClick={() => handleAddToCart(item)}
-            className="btn btn-outline bg-slate-100 border-0 border-b-4 border-orange-400 mt-4"
+            className="btn btn-sm bg-indigo-600 text-white normal-case w-full py-1 hover:bg-indigo-400"
           >
-            Add to Cart
+            <FaShoppingCart />
           </button>
         </div>
       </div>
