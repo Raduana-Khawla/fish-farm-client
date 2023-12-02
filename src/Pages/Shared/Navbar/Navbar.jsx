@@ -4,6 +4,7 @@ import { AuthContext } from "../../../Providers/AuthProvider/AuthProvider";
 import useCart from "../../../hooks/useCart/useCart";
 import { FaUser } from "react-icons/fa";
 import { GrUserManager } from "react-icons/gr";
+import { MdDashboard } from "react-icons/md";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -47,51 +48,6 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end">
-          <div className="dropdown md:flex">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h7"
-                />
-              </svg>
-            </div>
-            <ul className="menu menu-sm dropdown-content text-white text-bold mt-3 z-[1] p-2 shadow bg-opacity-30 bg-black rounded-box w-52">
-              {user ? (
-                <>
-                  <button
-                    onClick={handleLogOut}
-                    className="btn btn-ghost btn-circle p-4"
-                  >
-                    <GrUserManager />
-                  </button>
-                </>
-              ) : (
-                <>
-                  <li className="list-none p-4">
-                    <Link to="/login">
-                      <FaUser />
-                    </Link>
-                  </li>
-                </>
-              )}
-              <li>
-                <Link to="/dashboard">Dashboard</Link>
-              </li>
-            </ul>
-          </div>
           <div className="dropdown dropdown-end px-2">
             <div
               tabIndex={0}
@@ -134,6 +90,56 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="dropdown md:flex">
+            <div
+              tabIndex={0}
+              role="button"
+              className="btn btn-ghost btn-circle"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h7"
+                />
+              </svg>
+            </div>
+            <ul className="menu menu-sm dropdown-content text-white text-bold mt-3 z-[1] p-2 shadow bg-indigo-600 rounded-box w-52">
+              {user ? (
+                <>
+                  <button
+                    onClick={handleLogOut}
+                    className="btn btn-ghost btn-circle p-4 flex flex-row  items-center text-white text-sm"
+                  >
+                    <GrUserManager />
+                  </button>
+                </>
+              ) : (
+                <>
+                  <li className="list-none p-4 flex flex-row items-center text-white text-sm">
+                    <Link to="/login">
+                      <FaUser />
+                      Login
+                    </Link>
+                  </li>
+                </>
+              )}
+              <li className="list-none p-4 flex flex-row items-center text-white text-sm">
+                <Link to="/dashboard">
+                  {" "}
+                  <MdDashboard />
+                  Dashboard
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

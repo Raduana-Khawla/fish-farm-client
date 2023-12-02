@@ -6,7 +6,6 @@ import {
 } from "react-simple-captcha";
 import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
@@ -55,24 +54,16 @@ const Login = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Fish Farm | Login</title>
-      </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col md:flex-row-reverse">
           <div className="text-center md:w-1/2 lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
           </div>
-          <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
+          <div className="card md:w-1/2 max-w-sm shadow-2xl text-bold bg-indigo-600">
             <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="label-text text-white">Email</span>
                 </label>
                 <input
                   type="email"
@@ -83,7 +74,7 @@ const Login = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Password</span>
+                  <span className="label-text text-white">Password</span>
                 </label>
                 <input
                   type="password"
@@ -92,7 +83,10 @@ const Login = () => {
                   className="input input-bordered"
                 />
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">
+                  <a
+                    href="#"
+                    className="label-text-alt link link-hover text-white"
+                  >
                     Forgot password?
                   </a>
                 </label>
@@ -113,14 +107,14 @@ const Login = () => {
               <div className="form-control mt-6">
                 <input
                   disabled={false}
-                  className="btn btn-primary"
+                  className="btn btn-primary font-bold"
                   type="submit"
                   value="Login"
                 />
               </div>
             </form>
             <p>
-              <small className="px-6">
+              <small className="px-6 text-white">
                 New Here? <Link to="/signup">Create an account</Link>{" "}
               </small>
             </p>
