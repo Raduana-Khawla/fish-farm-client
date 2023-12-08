@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure/useAxiosSecure";
 import { Link } from "react-router-dom";
 
-const MyCart = () => {
+const Cart = () => {
   const [cart, refetch] = useCart();
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
   const axiosSecure = useAxiosSecure();
@@ -96,4 +96,4 @@ const MyCart = () => {
   );
 };
 
-export default MyCart;
+export default Cart;

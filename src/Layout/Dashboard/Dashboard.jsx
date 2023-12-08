@@ -80,7 +80,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/mycart">
+                <NavLink to="/dashboard/Cart">
                   <FaShoppingCart></FaShoppingCart> My Cart
                   <span className="badge inl badge-secondary">
                     +{cart?.length || 0}
@@ -100,7 +100,7 @@ const Dashboard = () => {
             <NavLink to="/menu"> Our Menu</NavLink>
           </li>
           <li>
-            <NavLink to="/order/salad">Order Food</NavLink>
+            <NavLink to="/order/commonCarp">Order Food</NavLink>
           </li>
         </ul>
       </div>

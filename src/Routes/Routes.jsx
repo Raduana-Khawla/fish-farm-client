@@ -6,7 +6,7 @@ import SignUp from "../Pages/SignUp/SignUp";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Menu from "../Pages/Menu/Menu";
 import Order from "../Pages/Menu/Order/Order/Order";
-import MyCart from "../Pages/Dashboard/MyCart/MyCart";
+import Cart from "../Pages/Dashboard/Cart/Cart";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AddItem from "../Pages/Dashboard/AddItem/AddItem";
@@ -14,6 +14,8 @@ import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems";
 import AdminRoute from "../Routes/AdminRoute/AdminRoute";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
+import PondFeature from "../Components/Pond/PondFeature";
+import Contact from "../Components/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +27,7 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/home",
+        path: "home",
         element: <Home></Home>,
       },
       {
@@ -44,29 +46,27 @@ export const router = createBrowserRouter([
         path: "order/:category",
         element: <Order></Order>,
       },
-      // {
-      //   path: "secret",
-      //   element: (
-      //     <PrivateRoute>
-      //       <Secret></Secret>
-      //     </PrivateRoute>
-      //   ),
-      // },
+
+      {
+        path: "pond",
+        element: <PondFeature></PondFeature>,
+      },
+      {
+        path: "contact",
+        element: <Contact></Contact>,
+      },
       {
         path: "dashboard",
         element: (
-          <PrivateRoute>
-            <Dashboard></Dashboard>
-          </PrivateRoute>
+          // <PrivateRoute>
+          <Dashboard></Dashboard>
+          // </PrivateRoute>
         ),
         children: [
+          // normal user routes
           {
-            path: "mycart",
-            element: <MyCart></MyCart>,
-          },
-          {
-            path: "allusers",
-            element: <AllUsers></AllUsers>,
+            path: "cart",
+            element: <Cart></Cart>,
           },
           {
             path: "payment",
@@ -75,22 +75,6 @@ export const router = createBrowserRouter([
           {
             path: "paymentHistory",
             element: <PaymentHistory></PaymentHistory>,
-          },
-          {
-            path: "addItem",
-            element: (
-              <AdminRoute>
-                <AddItem></AddItem>
-              </AdminRoute>
-            ),
-          },
-          {
-            path: "manageitems",
-            element: (
-              <AdminRoute>
-                <ManageItems></ManageItems>
-              </AdminRoute>
-            ),
           },
         ],
       },
