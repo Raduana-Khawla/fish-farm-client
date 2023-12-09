@@ -1,4 +1,4 @@
-import { Navigate, useLocation } from "react-router";
+import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../../hooks/useAuth/useAuth";
 import useAdmin from "../../hooks/useAdmin/useAdmin";
 
@@ -14,6 +14,7 @@ const AdminRoute = ({ children }) => {
   if (user && isAdmin) {
     return children;
   }
+
   return <Navigate to="/" state={{ from: location }} replace></Navigate>;
 };
 

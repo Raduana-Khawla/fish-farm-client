@@ -16,6 +16,7 @@ import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import PondFeature from "../Components/Pond/PondFeature";
 import Contact from "../Components/Contact/Contact";
+import UpdateItem from "../Pages/Dashboard/UpdateItem/UpdateItem";
 
 export const router = createBrowserRouter([
   {
@@ -58,9 +59,9 @@ export const router = createBrowserRouter([
       {
         path: "dashboard",
         element: (
-          // <PrivateRoute>
-          <Dashboard></Dashboard>
-          // </PrivateRoute>
+          <PrivateRoute>
+            <Dashboard></Dashboard>
+          </PrivateRoute>
         ),
         children: [
           // normal user routes
@@ -75,6 +76,42 @@ export const router = createBrowserRouter([
           {
             path: "paymentHistory",
             element: <PaymentHistory></PaymentHistory>,
+          },
+
+          // admin only routes
+          {
+            path: "addItems",
+            element: (
+              <AdminRoute>
+                <AddItem></AddItem>
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "manageItems",
+            element: (
+              <AdminRoute>
+                <ManageItems></ManageItems>
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "updateItem/:id",
+            element: (
+              <AdminRoute>
+                <UpdateItem></UpdateItem>
+              </AdminRoute>
+            ),
+            loader: ({ params }) =>
+              fetch(`http://localhost:5000/menu/${params.id}`),
+          },
+          {
+            path: "users",
+            element: (
+              <AdminRoute>
+                <AllUsers></AllUsers>
+              </AdminRoute>
+            ),
           },
         ],
       },
