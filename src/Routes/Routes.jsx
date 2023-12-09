@@ -14,9 +14,14 @@ import ManageItems from "../Pages/Dashboard/ManageItems/ManageItems";
 import AdminRoute from "../Routes/AdminRoute/AdminRoute";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
-import PondFeature from "../Components/Pond/PondFeature";
+import PondFeature from "../Pages/Dashboard/Pond/Pond";
 import Contact from "../Components/Contact/Contact";
 import UpdateItem from "../Pages/Dashboard/UpdateItem/UpdateItem";
+import Income from "../Pages/Dashboard/Income/Income";
+import Expense from "../Pages/Dashboard/Expense/Expense";
+import Pond from "../Pages/Dashboard/Pond/Pond";
+import Workers from "../Pages/Dashboard/Workers/Workers";
+import Suplier from "../Pages/Dashboard/Suplier/Suplier";
 
 export const router = createBrowserRouter([
   {
@@ -80,7 +85,7 @@ export const router = createBrowserRouter([
 
           // admin only routes
           {
-            path: "addItems",
+            path: "addItem",
             element: (
               <AdminRoute>
                 <AddItem></AddItem>
@@ -110,6 +115,46 @@ export const router = createBrowserRouter([
             element: (
               <AdminRoute>
                 <AllUsers></AllUsers>
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "workers",
+            element: (
+              <AdminRoute>
+                <Workers></Workers>
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "ponds",
+            element: (
+              <AdminRoute>
+                <Pond></Pond>
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "supliers",
+            element: (
+              <AdminRoute>
+                <Suplier></Suplier>
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "expenses",
+            element: (
+              <AdminRoute>
+                <Expense></Expense>
+              </AdminRoute>
+            ),
+          },
+          {
+            path: "incomes",
+            element: (
+              <AdminRoute>
+                <Income></Income>
               </AdminRoute>
             ),
           },

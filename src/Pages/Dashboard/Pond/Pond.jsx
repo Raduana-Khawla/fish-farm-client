@@ -1,6 +1,6 @@
 import React from "react";
 
-const PondFeature = () => {
+const Pond = () => {
   return (
     <>
       <div className="flex flex-col w-full border-opacity-50">
@@ -43,4 +43,4 @@ const PondFeature = () => {
   );
 };
 
-export default PondFeature;
+export default Pond;

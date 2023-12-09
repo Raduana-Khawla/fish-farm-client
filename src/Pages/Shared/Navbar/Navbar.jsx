@@ -87,10 +87,10 @@ const Navbar = () => {
                 <>
                   <button
                     onClick={handleLogOut}
-                    className="btn btn-ghost btn-circle p-4 flex flex-row  items-center text-white text-sm"
+                    className="btn btn-ghost btn-circle p-4 flex flex-row items-center text-white text-sm"
                   >
                     <GrUserManager />
-                    Logout
+                    <span>Logout</span>
                   </button>
                 </>
               ) : (
