@@ -2,7 +2,6 @@
 import commonCarpImg from "../../assets/commonCarp.jpeg";
 import catlaImg from "../../assets/catlaImg.jpeg";
 import WallagoattuImg from "../../assets/WallagoattuImg.jpeg";
-import ilish from "../../assets/ilish3.jpeg";
 import mystuscavasiusImg from "../../assets/mystuscavasiusImg.jpeg";
 import useMenu from "../../hooks/useMenu/useMenu";
 import MenuCategory from "../Menu/MenuCategory/MenuCategory";

@@ -10,14 +10,15 @@ const CheckoutForm = () => {
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [transactionId, setTransactionId] = useState("");
+  const [processing, setProcessing] = useState(false); // New state for processing
   const stripe = useStripe();
   const elements = useElements();
-  const axiosSecure = useAxiosSecure();
+  const [axiosSecure] = useAxiosSecure();
   const { user } = useAuth();
   const [cart, refetch] = useCart();
   const navigate = useNavigate();
 
-  const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+  const totalPrice = cart?.reduce((total, item) => total + item.price, 0);
 
   useEffect(() => {
     if (totalPrice > 0) {
@@ -37,6 +38,8 @@ const CheckoutForm = () => {
       return;
     }
 
+    setProcessing(true); // Start processing
+
     const card = elements.getElement(CardElement);
 
     if (card === null) {
@@ -47,12 +50,20 @@ const CheckoutForm = () => {
       type: "card",
       card,
     });
-
+    console.log("paymentMethod", paymentMethod);
     if (error) {
       console.log("payment error", error);
-      setError(error.message);
+
+      if (error.code === "incomplete_zip") {
+        setError("Please enter a complete postal code.");
+      } else {
+        setError(`Payment failed: ${error.message}`);
+      }
+
+      setProcessing(false); // Stop processing
+      return;
     } else {
-      console.log("payment method", paymentMethod);
+      // console.log("payment method", paymentMethod);
       setError("");
     }
 
@@ -81,7 +92,7 @@ const CheckoutForm = () => {
           email: user.email,
           price: totalPrice,
           transactionId: paymentIntent.id,
-          date: new Date(), // utc date convert. use moment js to
+          date: new Date(),
           cartIds: cart.map((item) => item._id),
           menuItemIds: cart.map((item) => item.menuId),
           status: "pending",
@@ -102,6 +113,8 @@ const CheckoutForm = () => {
         }
       }
     }
+
+    setProcessing(false); // Stop processing
   };
 
   return (
@@ -125,9 +138,9 @@ const CheckoutForm = () => {
       <button
         className="btn btn-sm btn-primary my-4"
         type="submit"
-        disabled={!stripe || !clientSecret}
+        disabled={!stripe || !clientSecret || processing}
       >
-        Pay
+        {processing ? "Processing..." : "Pay"}
       </button>
       <p className="text-red-600">{error}</p>
       {transactionId && (

@@ -108,7 +108,7 @@ export const router = createBrowserRouter([
               </AdminRoute>
             ),
             loader: ({ params }) =>
-              fetch(`http://localhost:5000/menu/${params.id}`),
+              fetch(`https://fish-farm-server.onrender.com/menu/${params.id}`),
           },
           {
             path: "users",

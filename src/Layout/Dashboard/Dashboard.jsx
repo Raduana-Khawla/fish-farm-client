@@ -121,7 +121,7 @@ const Dashboard = () => {
               <li>
                 <NavLink to="/dashboard/cart">
                   <FaShoppingCart></FaShoppingCart>
-                  My Cart ({cart.length})
+                  My Cart ({cart?.length})
                 </NavLink>
               </li>
               <li>

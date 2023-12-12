@@ -12,7 +12,7 @@ const AllUsers = () => {
   });
 
   const handleMakeAdmin = (user) => {
-    fetch(`http://localhost:5000/users/admin/${user._id}`, {
+    fetch(`https://fish-farm-server.onrender.com/users/admin/${user._id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
