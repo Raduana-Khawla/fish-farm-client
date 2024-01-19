@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosPublic = axios.create({
-  baseURL: "https://fish-farm-server.onrender.com",
+  baseURL: "https://raduana-khawla.onrender.com",
 });
 
 const useAxiosPublic = () => {

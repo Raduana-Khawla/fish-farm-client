@@ -57,7 +57,7 @@ const AuthProvider = ({ children }) => {
       // get and set token
       if (currentUser) {
         axios
-          .post("https://fish-farm-server.onrender.com/jwt", {
+          .post("https://raduana-khawla.onrender.com/jwt", {
             email: currentUser.email,
           })
           .then((data) => {

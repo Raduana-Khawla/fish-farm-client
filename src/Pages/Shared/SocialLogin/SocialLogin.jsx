@@ -18,7 +18,7 @@ const SocialLogin = () => {
         name: loggedInUser.displayName,
         email: loggedInUser.email,
       };
-      fetch("https://fish-farm-server.onrender.com/users", {
+      fetch("https://raduana-khawla.onrender.com/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",

@@ -22,7 +22,7 @@ const FoodCard = ({ item }) => {
         price,
         email: user.email,
       };
-      fetch("https://fish-farm-server.onrender.com/carts", {
+      fetch("https://raduana-khawla.onrender.com/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",
