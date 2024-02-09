@@ -10,7 +10,7 @@ const SocialLogin = () => {
 
   const from = location.state?.from?.pathname || "/";
 
-  const handleGoogleSignIn = () => {
+  const handleGoogleSignIn = async () => {
     googleSignIn().then((result) => {
       const loggedInUser = result.user;
       console.log(loggedInUser);
@@ -18,7 +18,7 @@ const SocialLogin = () => {
         name: loggedInUser.displayName,
         email: loggedInUser.email,
       };
-      fetch("https://fish-farm-server.onrender.com/users", {
+      fetch("https://raduana-khawla.onrender.com/users", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -28,10 +28,10 @@ const SocialLogin = () => {
         .then((res) => res.json())
         .then(() => {
           navigate(from, { replace: true });
-        });
+        })
+        .catch((err) => alert(err));
     });
   };
-
   return (
     <div>
       <div className="divider"></div>

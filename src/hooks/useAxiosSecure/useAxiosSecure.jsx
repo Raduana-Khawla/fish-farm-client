@@ -8,7 +8,7 @@ const useAxiosSecure = () => {
   const navigate = useNavigate();
 
   const axiosSecure = axios.create({
-    baseURL: "https://fish-farm-server.onrender.com",
+    baseURL: "https://raduana-khawla.onrender.com",
   });
 
   useEffect(() => {

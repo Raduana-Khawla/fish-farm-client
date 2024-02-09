@@ -17,10 +17,10 @@ const CheckoutForm = () => {
   const { user } = useAuth();
   const [cart, refetch] = useCart();
   const navigate = useNavigate();
-
-  const totalPrice = cart?.reduce((total, item) => total + item.price, 0);
-
+  const [totalPrice, setTotalPrice] = useState(0);
   useEffect(() => {
+    const totalPrice = cart?.reduce((total, item) => total + item.price, 0);
+    setTotalPrice(totalPrice);
     if (totalPrice > 0) {
       axiosSecure
         .post("/create-payment-intent", { price: totalPrice })
@@ -29,7 +29,7 @@ const CheckoutForm = () => {
           setClientSecret(res.data.clientSecret);
         });
     }
-  }, [axiosSecure, totalPrice]);
+  }, [cart]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();

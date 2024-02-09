@@ -8,9 +8,12 @@ import { AuthContext } from "../../Providers/AuthProvider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import SocialLogin from "../Shared/SocialLogin/SocialLogin";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
   const [disabled, setDisabled] = useState(true);
+  const [isPasswordShow, setIsPasswordShow] = useState(false);
+  const [error, setError] = useState("");
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -22,25 +25,28 @@ const Login = () => {
   }, []);
 
   const handleLogin = (event) => {
+    setError("");
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    signIn(email, password).then((result) => {
-      const user = result.user;
-      console.log(user);
-      Swal.fire({
-        title: "User Login Successful.",
-        showClass: {
-          popup: "animate__animated animate__fadeInDown",
-        },
-        hideClass: {
-          popup: "animate__animated animate__fadeOutUp",
-        },
-      });
-      navigate(from, { replace: true });
-    });
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        Swal.fire({
+          title: "User Login Successful.",
+          showClass: {
+            popup: "animate__animated animate__fadeInDown",
+          },
+          hideClass: {
+            popup: "animate__animated animate__fadeOutUp",
+          },
+        });
+        navigate(from, { replace: true });
+      })
+      .catch((err) => setError(err.message));
   };
 
   const handleValidateCaptcha = (e) => {
@@ -76,12 +82,31 @@ const Login = () => {
                 <label className="label">
                   <span className="label-text text-white">Password</span>
                 </label>
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="password"
-                  className="input input-bordered"
-                />
+                <div className=" flex items-center relative">
+                  <input
+                    type={isPasswordShow ? "text" : "password"}
+                    name="password"
+                    placeholder="password"
+                    className="input input-bordered"
+                  />
+                  <div className="absolute right-4">
+                    {isPasswordShow ? (
+                      <AiFillEye
+                        onClick={() => {
+                          console.log("CLICKED");
+                          setIsPasswordShow(false);
+                        }}
+                        className="  text-red-400 "
+                      />
+                    ) : (
+                      <AiFillEyeInvisible
+                        onClick={() => setIsPasswordShow(true)}
+                        className=" text-white "
+                      />
+                    )}
+                  </div>
+                </div>
+                {error && <p className=" text-red-400 ">{error}</p>}
                 <label className="label">
                   <a
                     href="#"

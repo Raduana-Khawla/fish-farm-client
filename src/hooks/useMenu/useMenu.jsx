@@ -4,7 +4,7 @@ const useMenu = () => {
   // const [menu, setMenu] = useState([]);
   // const [loading, setLoading] = useState(true);
   // useEffect(() => {
-  //     fetch('https://fish-farm-server.onrender.com/menu')
+  //     fetch('https://raduana-khawla.onrender.com//menu')
   //         .then(res => res.json())
   //         .then(data => {
   //             setMenu(data);
@@ -19,7 +19,7 @@ const useMenu = () => {
   } = useQuery({
     queryKey: ["menu"],
     queryFn: async () => {
-      const res = await fetch("https://fish-farm-server.onrender.com/menu");
+      const res = await fetch("https://raduana-khawla.onrender.com/menu");
       return res.json();
     },
   });

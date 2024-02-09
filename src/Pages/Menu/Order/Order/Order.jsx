@@ -32,9 +32,9 @@ const Order = () => {
   const wallagoattu = menu.filter((item) => item.category === "wallagoattu");
 
   return (
-    <div>
+    <div className=" mb-[50px] md:mb-0">
       <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-        <TabList className="bg-indigo-300">
+        <TabList className="bg-indigo-800">
           <Tab>Ilish</Tab>
           <Tab>Mystuscavasius</Tab>
           <Tab>CommonCarp</Tab>
