@@ -22,19 +22,41 @@ const AuthProvider = ({ children }) => {
 
   const googleProvider = new GoogleAuthProvider();
 
-  const createUser = (email, password) => {
+  const createUser = async (email, password) => {
     setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password);
+    // eslint-disable-next-line no-useless-catch
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      return result;
+    } catch (error) {
+      throw error;
+    }
   };
 
-  const signIn = (email, password) => {
+  const signIn = async (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(auth, email, password);
+    // eslint-disable-next-line no-useless-catch
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      return result;
+    } catch (error) {
+      throw error;
+    }
   };
 
-  const googleSignIn = () => {
+  const googleSignIn = async () => {
     setLoading(true);
-    return signInWithPopup(auth, googleProvider);
+    // eslint-disable-next-line no-useless-catch
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      return result;
+    } catch (error) {
+      throw error;
+    }
   };
 
   const logOut = () => {

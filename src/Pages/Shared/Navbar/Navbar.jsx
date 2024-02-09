@@ -105,7 +105,6 @@ const Navbar = () => {
               )}
               <li className="list-none p-2 flex flex-row items-center text-white text-sm">
                 <Link to="/dashboard/payment">
-                  {" "}
                   <MdDashboard />
                   Dashboard
                 </Link>
