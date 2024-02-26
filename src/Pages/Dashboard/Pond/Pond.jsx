@@ -2,7 +2,7 @@ import React from "react";
 
 const Pond = () => {
   return (
-    <>
+    <div className="">
       <div className="flex flex-col w-full border-opacity-50">
         <div className="grid h-20 card bg-indigo-500 mt-2 text-white rounded-box place-items-center">
           <h2 className="text-3xl font-bold ">Advance Search</h2>
@@ -62,7 +62,7 @@ const Pond = () => {
           </tbody>
         </table>
       </div>
-    </>
+    </div>
   );
 };
 

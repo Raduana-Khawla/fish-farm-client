@@ -6,8 +6,8 @@ import slide5 from "../../../assets/banner3.jpeg";
 
 const Category = () => {
   return (
-    <section className="pb-28  mt-2">
-      <div className="carousel carousel-center bg-indigo-400 max-w-full p-4 space-x-4 rounded-box">
+    <section className=" ">
+      <div className="carousel carousel-center     bg-indigo-400 max-w-full  p-2 space-x-4 ">
         <div className="carousel-item">
           <img src={slide1} className="rounded-box h-32 w-60" />
         </div>

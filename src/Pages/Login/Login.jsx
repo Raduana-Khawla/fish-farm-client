@@ -60,10 +60,10 @@ const Login = () => {
 
   return (
     <>
-      <div className="hero min-h-screen bg-base-200">
+      <div className="hero min-h-screen w-full  ">
         <div className="hero-content flex-col md:flex-row-reverse">
           <div className="text-center md:w-1/2 lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
+            <h1 className="text-5xl font-bold text-black">Login now</h1>
           </div>
           <div className="card md:w-1/2 max-w-sm shadow-2xl text-bold bg-indigo-600">
             <form onSubmit={handleLogin} className="card-body">

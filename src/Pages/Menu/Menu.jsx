@@ -15,9 +15,9 @@ const Menu = () => {
   const ilish = menu.filter((item) => item.category === "ilish");
   const catla = menu.filter((item) => item.category === "catla");
   const Wallagoattu = menu.filter((item) => item.category === "Wallagoattu");
-
+  console.log("MENUS", menu);
   return (
-    <div>
+    <div className="">
       <MenuCategory items={ilish} title="ilish" img={ilish}></MenuCategory>
       <MenuCategory
         items={mystuscavasiuss}

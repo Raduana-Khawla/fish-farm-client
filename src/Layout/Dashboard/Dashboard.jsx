@@ -13,66 +13,56 @@ import {
 import { NavLink, Outlet } from "react-router-dom";
 import useCart from "../../hooks/useCart/useCart";
 import useAdmin from "../../hooks/useAdmin/useAdmin";
+import { useState } from "react";
 
 const Dashboard = () => {
   const [cart] = useCart();
 
-  // TODO: get isAdmin value from the database
   const [isAdmin] = useAdmin();
+  console.log("idfdsAdmin", isAdmin);
 
   return (
-    <div>
+    <div className=" ">
       <div className="drawer">
-        <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+        <input
+          id="my-drawer"
+          type="checkbox"
+          className="drawer-toggle"
+          // eslint-disable-next-line react/no-unknown-property
+        />
         <div className="drawer-content p-4">
           {/* Page content here */}
-          <label
-            htmlFor="my-drawer"
-            className="btn btn-primary drawer-button text-white"
-          >
+          <label htmlFor="my-drawer" className="btn btn-primary drawer-button ">
             Menu
           </label>
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side top-[50px] z-50">
           <label
             htmlFor="my-drawer"
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <ul className="menu p-4 w-80 pt-20 min-h-full  bg-indigo-600 text-white font-bold">
+          <ul className="menu p-4 w-[70%] pt-2 min-h-full  bg-indigo-600 text-white font-bold">
             {/* Sidebar content here */}
             {/* {isAdmin ? ( */}
             <>
-              <li>
-                <NavLink to="/dashboard/adminHome">
-                  <FaHome></FaHome>
-                  Admin Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/addItem">
-                  <FaUtensils></FaUtensils>
-                  Add Items
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/manageItems">
-                  <FaList></FaList>
-                  Manage Items
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/bookings">
-                  <FaBook></FaBook>
-                  Manage Bookings
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/users">
-                  <FaUsers></FaUsers>
-                  All Customers
-                </NavLink>
-              </li>
+              {isAdmin ? (
+                <li>
+                  <NavLink to="/dashboard/addItem">
+                    <FaUtensils></FaUtensils>
+                    Add Items
+                  </NavLink>
+                </li>
+              ) : null}
+              {isAdmin ? (
+                <li>
+                  <NavLink to="/dashboard/manageItems">
+                    <FaList></FaList>
+                    Manage Items
+                  </NavLink>
+                </li>
+              ) : null}
+
               <li>
                 <NavLink to="/dashboard/workers">
                   <FaUsers></FaUsers>
@@ -86,7 +76,7 @@ const Dashboard = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/dashboard/ponds">
+                <NavLink to="/pond">
                   <FaUsers></FaUsers>
                   Ponds
                 </NavLink>
@@ -107,31 +97,24 @@ const Dashboard = () => {
             {/* ) : ( */}
             <>
               <li>
-                <NavLink to="/dashboard/userHome">
+                <NavLink to="/home">
                   <FaHome></FaHome>
                   User Home
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/dashboard/history">
-                  <FaCalendar></FaCalendar>
-                  Not History
-                </NavLink>
-              </li>
+
               <li>
                 <NavLink to="/dashboard/cart">
                   <FaShoppingCart></FaShoppingCart>
                   My Cart ({cart?.length})
                 </NavLink>
               </li>
+
               <li>
-                <NavLink to="/dashboard/review">
-                  <FaAd></FaAd>
-                  Add a Review
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/paymentHistory">
+                <NavLink
+                  // className="drawer-toggle"
+                  to="/dashboard/paymentHistory"
+                >
                   <FaList></FaList>
                   Real Payment History
                 </NavLink>
@@ -141,19 +124,13 @@ const Dashboard = () => {
             {/* shared nav links */}
 
             <li>
-              <NavLink to="/">
-                <FaHome></FaHome>
-                Home
-              </NavLink>
-            </li>
-            <li>
               <NavLink to="/order/commonCarp">
                 <FaSearch></FaSearch>
                 Menu
               </NavLink>
             </li>
             <li>
-              <NavLink to="/order/contact">
+              <NavLink to="/contact">
                 <FaEnvelope></FaEnvelope>
                 Contact
               </NavLink>

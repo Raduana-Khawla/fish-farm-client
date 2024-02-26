@@ -136,7 +136,7 @@ const CheckoutForm = () => {
         }}
       />
       <button
-        className="btn btn-sm btn-primary my-4"
+        className="btn btn-sm  btn-primary my-4"
         type="submit"
         disabled={!stripe || !clientSecret || processing}
       >

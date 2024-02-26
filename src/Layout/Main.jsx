@@ -9,7 +9,7 @@ const Main = () => {
     location.pathname.includes("login") || location.pathname.includes("signup");
 
   return (
-    <div>
+    <div className=" ">
       {noHeaderFooter || <Navbar></Navbar>}
       <Outlet></Outlet>
       {noHeaderFooter || <BottomNav />}

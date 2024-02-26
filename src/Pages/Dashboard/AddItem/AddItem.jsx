@@ -49,7 +49,7 @@ const AddItem = () => {
   };
 
   return (
-    <div>
+    <div className=" h-[119vh]">
       <SectionTitle
         heading="add an item"
         subHeading="What's new?"
